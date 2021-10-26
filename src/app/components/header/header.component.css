@@ -1,0 +1,22 @@
+.header {
+    background: #2a9d8f;
+    display: flex;
+    margin: 0px;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header > * {
+    margin: 10px;
+}
+
+.header img {
+    height: 85%;
+}
+
+.header-text {
+    font-size: 35px;
+}
