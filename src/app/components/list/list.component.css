@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 15px;
+    width: 70%;
+    max-width: 580px;
+}
+
+.item {
+    display: flex;
+    background-color: #d3d3d3;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.item > * {
+    margin: 20px;
+}
+
+.icon {
+    max-height: 25px;
+    width: auto;
+}
+
+.icon:hover {
+    filter: invert(100%) brightness(50%);
+    cursor: pointer;
+}
+
+.description {
+    text-align: right;
+    font-size: 20px;
+    inline-size: 80%;
+    overflow-wrap: anywhere;
+}
