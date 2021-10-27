@@ -7,23 +7,13 @@
 }
 
 .item {
-    --border-color: rgb(59, 59, 59);
-    --border-size: 1px;
     display: flex;
     flex: 1;
     background: #070707;
     color: #ffffff;
     height: 100%;
-
     border: 1px solid rgb(59, 59, 59);
     border-right: none;
-
-    /* box-shadow: 
-        var(--border-size) 0 0 0 var(--border-color),
-        0 var(--border-size) 0 0 var(--border-color), 
-        var(--border-size) var(--border-size) 0 0 var(--border-color),
-        var(--border-size) 0 0 0 var(--border-color) inset, 
-        0 var(--border-size) 0 0 var(--border-color) inset; */
 }
 
 .item:first-child {
@@ -31,7 +21,7 @@
 }
 
 .item:hover {
-    background: rgb(34, 34, 34);
+    filter: invert(100%) brightness(20%);
     cursor: pointer;
 }
 

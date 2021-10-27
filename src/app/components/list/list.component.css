@@ -36,3 +36,11 @@
     inline-size: 80%;
     overflow-wrap: anywhere;
 }
+
+.field {
+    font-weight: bold;
+}
+
+li {
+    font-size: 15px;
+}

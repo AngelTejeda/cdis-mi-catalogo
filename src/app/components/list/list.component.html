@@ -1,6 +1,37 @@
 <div class="container">
     <div class="item" *ngFor="let auto of autos">
-        <img src="../../../assets/images/show-icon.png" alt="" class="icon">
+        <img (click)="openModal(auto, modalRef)" src="../../../assets/images/show-icon.png" alt="" class="icon">
         <p class="description">{{ auto.descripcion }}</p>
     </div>
 </div>
+
+
+<ng-template #modalRef let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Detalles de Auto</h4>
+    </div>
+
+    <div *ngIf="autoSeleccionado" class="modal-body">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <span class="field">Marca: </span> <span class="value">{{ autoSeleccionado.marca }}</span>
+            </li>
+            <li class="list-group-item">
+                <span class="field">Submarca: </span> <span class="value">{{ autoSeleccionado.submarca }}</span>
+            </li>
+            <li class="list-group-item">
+                <span class="field">Modelo: </span> <span class="value">{{ autoSeleccionado.modelo }}</span>
+            </li>
+            <li class="list-group-item">
+                <span class="field">Descripción: </span> <span class="value">{{ autoSeleccionado.descripcion }}</span>
+            </li>
+            <li class="list-group-item">
+                <span class="field">Fecha de Registro: </span> <span class="value">{{ autoSeleccionado.fecha_registro }}</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn" (click)="modal.close()">Close</button>
+    </div>
+</ng-template>
