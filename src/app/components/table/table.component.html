@@ -1,1 +1,21 @@
-<p>table works!</p>
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Marca</th>
+            <th scope="col">Submarca</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Fecha de Registro</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let auto of autos; index as i">
+            <td>{{ auto.marca }}</td>
+            <td>{{ auto.submarca }}</td>
+            <td>{{ auto.modelo }}</td>
+            <td>{{ auto.descripcion }}</td>
+            <td>{{ auto.fecha_registro }}</td>
+        </tr>
+    </tbody>
+  </table>

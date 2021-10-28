@@ -9,14 +9,12 @@ import { Automovil } from 'src/app/models';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  autos: Automovil[] = [];
+  autos: Automovil[] = AUTOMOVILES;
   autoSeleccionado?: Automovil;
 
   constructor(private modalService: NgbModal) { }
 
-  ngOnInit(): void {
-    this.autos = AUTOMOVILES;
-  }
+  ngOnInit(): void { }
 
   openModal(auto: Automovil, modalRef: any) {
     this.autoSeleccionado = auto;
