@@ -14,15 +14,23 @@
     height: 100%;
     border: 1px solid rgb(59, 59, 59);
     border-right: none;
+    text-decoration: none;
 }
 
 .item:first-child {
     border-left: none;
 }
 
-.item:hover {
-    filter: invert(100%) brightness(20%);
+.item:hover:not(.item-active) {
+    filter: invert(100%) brightness(30%);
     cursor: pointer;
+}
+
+.item-active {
+    background-color: #ffffff;
+    color: black;
+    cursor: default;
+    border-bottom: none;
 }
 
 p {
