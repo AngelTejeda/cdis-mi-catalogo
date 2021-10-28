@@ -1,0 +1,24 @@
+.container {
+    background-color: rgb(202, 202, 202);
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+    border-radius: 20px;
+    width: 80%;
+    padding: 20px;
+}
+
+.code {
+    font-size: 100px;
+    font-weight: bold;
+}
+
+.message {
+    font-size: 80px;
+}
+
+.btn {
+    display: block;
+    margin: auto;
+    font-size: 20px;
+}

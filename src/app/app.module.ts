@@ -8,6 +8,7 @@ import { ListComponent } from './components/list/list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { TableComponent } from './components/table/table.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { TableComponent } from './components/table/table.component';
     HeaderComponent,
     ViewsComponent,
     ListComponent,
-    TableComponent
+    TableComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
