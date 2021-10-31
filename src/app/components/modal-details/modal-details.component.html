@@ -1,0 +1,36 @@
+<div class="modal-header">
+    <h4 class="modal-title">Detalles de Auto</h4>
+</div>
+
+<div *ngIf="auto" class="modal-body">
+    <ul class="list-group">
+        <li class="list-group-item">
+            <b>ID: </b> {{ auto._id }}
+        </li>
+        <li class="list-group-item">
+            <b>Cveveh: </b> {{ auto.Cveveh }}
+        </li>
+        <li class="list-group-item">
+            <b>Marca: </b> {{ auto.marca }}
+        </li>
+        <li class="list-group-item">
+            <b>Submarca: </b> {{ auto.submarca }}
+        </li>
+        <li class="list-group-item">
+            <b>Descripción: </b> {{ auto.descripcion }}
+        </li>
+        <li class="list-group-item">
+            <b>Modelos: </b>
+            <ul class="list-group">
+                <li *ngFor="let modelo of auto.modelos" class="list-group-item">{{ modelo }}</li>
+            </ul>
+        </li>
+        <li class="list-group-item">
+            <b>Ocupantes: </b> {{ auto.Ocupantes }}
+        </li>
+    </ul>
+</div>
+
+<div class="modal-footer">
+    <button class="btn" (click)="closeModal()">Close</button>
+</div>

@@ -1,21 +1,29 @@
-<table class="table table-striped">
+<div *ngIf="isLoading" class="spinner-border spinner" role="status">
+    <span class="sr-only">Loading...</span>
+</div>
+
+<table *ngIf="!isLoading" class="table table-striped">
     <thead class="thead-dark">
         <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Cveveh</th>
             <th scope="col">Marca</th>
             <th scope="col">Submarca</th>
-            <th scope="col">Modelo</th>
             <th scope="col">Descripción</th>
-            <th scope="col">Fecha de Registro</th>
+            <th scope="col">Modelos</th>
+            <th scope="col">Ocupantes</th>
         </tr>
     </thead>
 
     <tbody>
         <tr *ngFor="let auto of autos; index as i">
+            <td>{{ auto._id }}</td>
+            <td>{{ auto.Cveveh }}</td>
             <td>{{ auto.marca }}</td>
             <td>{{ auto.submarca }}</td>
-            <td>{{ auto.modelo }}</td>
             <td>{{ auto.descripcion }}</td>
-            <td>{{ auto.fecha_registro }}</td>
+            <td><p *ngFor="let modelo of auto.modelos">{{ modelo }}</p></td>
+            <td>{{ auto.Ocupantes }}</td>
         </tr>
     </tbody>
   </table>

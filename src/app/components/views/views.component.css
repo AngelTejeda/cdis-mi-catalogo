@@ -28,7 +28,7 @@
 }
 
 .item-active {
-    background-color: rgb(240, 240, 240);
+    background-color: #ffffff;
     color: black;
     cursor: default;
     border-bottom: none;

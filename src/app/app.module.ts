@@ -9,6 +9,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { TableComponent } from './components/table/table.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ModalDetailsComponent } from './components/modal-details/modal-details.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     ViewsComponent,
     ListComponent,
     TableComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ModalDetailsComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

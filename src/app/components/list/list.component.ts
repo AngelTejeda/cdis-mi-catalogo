@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { AUTOMOVILES } from 'src/app/data';
-import { Automovil } from 'src/app/models';
+import { ApiResponse, Automovil } from 'src/app/models';
+import { AutosService } from 'src/app/services/autos.service';
+import { ModalDetailsComponent } from '../modal-details/modal-details.component';
 
 @Component({
   selector: 'app-list',
@@ -9,20 +10,25 @@ import { Automovil } from 'src/app/models';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  autos: Automovil[] = AUTOMOVILES;
-  autoSeleccionado?: Automovil;
+  autos: Automovil[] = [];
+  isLoading: boolean = true;
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal, private autosService: AutosService) {
+    this.autosService.getAutos().subscribe(
+      (result: ApiResponse) => {
+        this.autos = result.data;
+        this.isLoading = false;
+      },
+      (error) => {
+        console.log(error);
+        this.isLoading = false;
+      });
+  }
 
   ngOnInit(): void { }
 
-  openModal(auto: Automovil, modalRef: any) {
-    this.autoSeleccionado = auto;
-
-    this.modalService.open(modalRef).result.then((result) => {
-      this.autoSeleccionado = undefined;
-    }, (reason) => {
-      this.autoSeleccionado = undefined;
-    });
+  openModal(auto: Automovil) {
+    const modalRef = this.modalService.open(ModalDetailsComponent, {centered: true})
+    modalRef.componentInstance.auto = auto;
   }
 }
