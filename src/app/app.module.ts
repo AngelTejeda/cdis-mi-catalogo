@@ -11,6 +11,8 @@ import { TableComponent } from './components/table/table.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ModalDetailsComponent } from './components/modal-details/modal-details.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalEditComponent } from './components/modal-edit/modal-edit.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,13 +22,15 @@ import { HttpClientModule } from '@angular/common/http';
     ListComponent,
     TableComponent,
     PageNotFoundComponent,
-    ModalDetailsComponent
+    ModalDetailsComponent,
+    ModalEditComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

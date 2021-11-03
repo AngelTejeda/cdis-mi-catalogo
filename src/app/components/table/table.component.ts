@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ApiResponse, Automovil } from 'src/app/models';
 import { AutosService } from 'src/app/services/autos.service';
+import { ModalEditComponent } from '../modal-edit/modal-edit.component';
 
 @Component({
   selector: 'app-table',
@@ -14,7 +16,7 @@ export class TableComponent implements OnInit {
   page: number = 1;
   pageSize: number = 10;
 
-  constructor(private autosService: AutosService) {
+  constructor(private autosService: AutosService, private modalService: NgbModal) {
     this.autosService.getAutos().subscribe(
       (result: ApiResponse) => {
         this.autos = result.data;
@@ -29,4 +31,9 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  openModal(auto: Automovil): void {
+    const modalRef = this.modalService.open(ModalEditComponent, {centered: true});
+    modalRef.componentInstance.auto = auto;
+    modalRef.componentInstance.action = "Editar";
+  }
 }

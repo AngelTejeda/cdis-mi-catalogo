@@ -29,7 +29,7 @@
                 <td>{{ auto.marca }}</td>
                 <td>{{ auto.submarca }}</td>
                 <td>{{ auto.descripcion }}</td>
-                <td><img src="../../../assets/images/edit.svg" alt="Edit"></td>
+                <td><img (click)="openModal(auto)" src="../../../assets/images/edit.svg" alt="Edit"></td>
                 <td><img src="../../../assets/images/trash.svg" alt="Delete"></td>
             </tr>
         </tbody>

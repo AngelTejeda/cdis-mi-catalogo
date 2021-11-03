@@ -1,0 +1,63 @@
+<div *ngIf="auto">
+    <div class="modal-header">
+        <h4 class="modal-title">{{ action }} - {{ auto.marca }} {{ auto.submarca }}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    
+    <div class="modal-body">
+        
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" disabled class="form-control" id="id"
+            [(ngModel)]="auto._id">
+        </div>
+
+        <div class="form-group">
+            <label for="cveveh">Cveveh</label>
+            <input type="text" disabled class="form-control" id="cveveh"
+            [(ngModel)]="auto.Cveveh">
+        </div>
+
+        <div class="form-group">
+            <label for="marca">Marca</label>
+            <input type="text" class="form-control" id="marca"
+            placeholder="Agregue la marca" [(ngModel)]="auto.marca">
+        </div>
+
+        <div class="form-group">
+            <label for="submarca">Submarca</label>
+            <input type="text" class="form-control" id="submarca"
+            placeholder="Agregue la submarca" [(ngModel)]="auto.submarca">
+        </div>
+        
+        <div class="form-group">
+            <label for="descripcion-corta">Descripción Corta</label>
+            <textarea class="form-control" id="descripcion-corta" rows="2"
+            placeholder="Agregue la descripción corta" [(ngModel)]="auto.descripcioncorta"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="descripcion">Descripción</label>
+            <textarea class="form-control" id="descripcion" rows="2"
+            placeholder="Agregue la descripción" [(ngModel)]="auto.descripcion"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="modelos">Modelos</label>
+            <input class="form-control" id="modelos" disabled
+            placeholder="Agregue los modelos" [(ngModel)]="auto.modelos">
+        </div>
+
+        <div class="form-group">
+            <label for="ocupantes">Ocupantes</label>
+            <input type="number" class="form-control" id="ocupantes"
+            placeholder="Agregue los ocupantes" [(ngModel)]="auto.Ocupantes">
+        </div>
+    </div>
+    
+    <div class="modal-footer">
+        <button class="btn btn-primary" (click)="close()">{{ action }}</button>
+    </div>
+</div>
