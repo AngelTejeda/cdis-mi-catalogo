@@ -8,12 +8,12 @@
     margin: auto;
 }
 
-img {
-    width: 20px;
-    margin: auto
+.table-icon {
+    font-size: 20px;
+    margin: auto;
 }
 
-img:hover {
-    filter: invert(100%) brightness(30%);
+.table-icon:hover {
+    filter: invert(100%) brightness(60%);
     cursor: pointer;
 }

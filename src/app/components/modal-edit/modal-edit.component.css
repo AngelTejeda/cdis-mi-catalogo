@@ -5,3 +5,13 @@
 .form-control {
     font-size: 15px;
 }
+
+i {
+    margin: 5px;
+    font-size: 20px;
+}
+
+i:hover {
+    filter: invert(100%) brightness(60%);
+    cursor: pointer;
+}

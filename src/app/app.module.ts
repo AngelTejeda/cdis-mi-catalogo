@@ -13,6 +13,8 @@ import { ModalDetailsComponent } from './components/modal-details/modal-details.
 import { HttpClientModule } from '@angular/common/http';
 import { ModalEditComponent } from './components/modal-edit/modal-edit.component';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -30,9 +32,13 @@ import { FormsModule } from '@angular/forms';
     NgbModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [
+    MatSnackBarModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

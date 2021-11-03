@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ApiResponse, Automovil } from '../models';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,5 +13,26 @@ export class AutosService {
 
   getAutos(): Observable<ApiResponse> {
     return this.http.get<ApiResponse>(this.autosURL);
+  }
+
+  updateAuto(auto: Automovil): Observable<any> {
+    // return this.http.put<any>(`${this.autosURL}/${auto._id}`, auto);
+    
+    const myObservable = of("{'status': 'success', 'message': 'updated auto'}");
+    return myObservable;
+  }
+
+  addAuto(auto: Automovil): Observable<any> {
+    //return this.http.post<any>(this.autosURL, auto);
+    
+    const myObservable = of("{'status': 'success', 'message': 'added new auto'}");
+    return myObservable;
+  }
+
+  deleteAuto(id: number) {
+    //return this.http.delete<any>(`${this.autosURL}/${id}`);
+
+    const myObservable = of("{'status': 'success', 'message': 'deleted auto'}");
+    return myObservable;
   }
 }

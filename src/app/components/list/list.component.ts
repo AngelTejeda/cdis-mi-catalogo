@@ -32,5 +32,6 @@ export class ListComponent implements OnInit {
   openModal(auto: Automovil) {
     const modalRef = this.modalService.open(ModalDetailsComponent, {centered: true})
     modalRef.componentInstance.auto = auto;
+    modalRef.componentInstance.action = "view";
   }
 }

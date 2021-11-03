@@ -1,5 +1,8 @@
 <div class="modal-header">
     <h4 class="modal-title">Detalles de Auto</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+        <span aria-hidden="true">&times;</span>
+    </button>
 </div>
 
 <div *ngIf="auto" class="modal-body">
@@ -32,5 +35,5 @@
 </div>
 
 <div class="modal-footer">
-    <button class="btn btn-primary" (click)="closeModal()">Cerrar</button>
+    <button class="btn" [ngClass]="action == 'delete' ? 'btn-danger' : 'btn-primary'" (click)="closeModal()">{{ buttonText }}</button>
 </div>

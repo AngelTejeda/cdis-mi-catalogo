@@ -8,15 +8,22 @@ import { Automovil } from 'src/app/models';
   styleUrls: ['./modal-details.component.css']
 })
 export class ModalDetailsComponent implements OnInit {
-  @Input() auto?: Automovil;
+  auto: Automovil = {} as Automovil;
+  action: string = "";
+  buttonText: string = "";
   
-  constructor(private modal: NgbActiveModal) { }
+  constructor(private modalRef: NgbActiveModal) { }
 
   ngOnInit(): void {
+    this.buttonText = this.action == "delete" ? "Eliminar" : "Cerrar";
   }
 
   closeModal(): void {
-    this.modal.close();
+    this.modalRef.close(this.auto);
+  }
+
+  dismiss(): void {
+    this.modalRef.dismiss();
   }
 
 }
