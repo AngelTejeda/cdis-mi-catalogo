@@ -12,6 +12,8 @@ import { ModalDetailsComponent } from '../modal-details/modal-details.component'
 export class ListComponent implements OnInit {
   autos: Automovil[] = [];
   isLoading: boolean = true;
+  page: number = 1;
+  pageSize: number = 10;
 
   constructor(private modalService: NgbModal, private autosService: AutosService) {
     this.autosService.getAutos().subscribe(

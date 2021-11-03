@@ -2,28 +2,42 @@
     <span class="sr-only">Loading...</span>
 </div>
 
-<table *ngIf="!isLoading" class="table table-striped">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Cveveh</th>
-            <th scope="col">Marca</th>
-            <th scope="col">Submarca</th>
-            <th scope="col">Descripción</th>
-            <th scope="col">Modelos</th>
-            <th scope="col">Ocupantes</th>
-        </tr>
-    </thead>
+<div *ngIf="!isLoading">
+    <div class="d-flex justify-content-center">
+        <ngb-pagination size="lg"
+                [(page)]="page" [pageSize]="pageSize" [collectionSize]="autos.length"
+                [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+    </div>
 
-    <tbody>
-        <tr *ngFor="let auto of autos; index as i">
-            <td>{{ auto._id }}</td>
-            <td>{{ auto.Cveveh }}</td>
-            <td>{{ auto.marca }}</td>
-            <td>{{ auto.submarca }}</td>
-            <td>{{ auto.descripcion }}</td>
-            <td><p *ngFor="let modelo of auto.modelos">{{ modelo }}</p></td>
-            <td>{{ auto.Ocupantes }}</td>
-        </tr>
-    </tbody>
-  </table>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Cveveh</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Submarca</th>
+                <th scope="col">Descripción</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+    
+        <tbody>
+            <tr *ngFor="let auto of autos | slice: (page - 1) * pageSize : page * pageSize">
+                <td>{{ auto._id }}</td>
+                <td>{{ auto.Cveveh }}</td>
+                <td>{{ auto.marca }}</td>
+                <td>{{ auto.submarca }}</td>
+                <td>{{ auto.descripcion }}</td>
+                <td><img src="../../../assets/images/edit.svg" alt="Edit"></td>
+                <td><img src="../../../assets/images/trash.svg" alt="Delete"></td>
+            </tr>
+        </tbody>
+      </table>
+
+    <div class="d-flex justify-content-center">
+        <ngb-pagination size="lg" class="mt-3"
+                [(page)]="page" [pageSize]="pageSize" [collectionSize]="autos.length"
+                [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+    </div>
+</div>

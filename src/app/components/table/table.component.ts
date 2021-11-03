@@ -11,6 +11,8 @@ export class TableComponent implements OnInit {
 
   autos: Automovil[] = [];
   isLoading: boolean = true;
+  page: number = 1;
+  pageSize: number = 10;
 
   constructor(private autosService: AutosService) {
     this.autosService.getAutos().subscribe(

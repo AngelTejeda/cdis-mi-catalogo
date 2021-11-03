@@ -40,3 +40,7 @@
     inline-size: 80%;
     overflow-wrap: anywhere;
 }
+
+ngb-pagination {
+    text-align: center;
+}
