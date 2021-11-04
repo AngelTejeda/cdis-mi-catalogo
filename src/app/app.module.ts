@@ -2,20 +2,22 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { ViewsComponent } from './components/views/views.component';
-import { ListComponent } from './components/list/list.component';
+import { HeaderComponent } from './components/head/header/header.component';
+import { ViewsComponent } from './components/head/views/views.component';
+import { ListComponent } from './components/content/list/list.component';
+import { TableComponent } from './components/content/table/table.component';
+import { PageNotFoundComponent } from './components/content/page-not-found/page-not-found.component';
+import { ModalDetailsComponent } from './components/modals/modal-details/modal-details.component';
+import { ModalEditComponent } from './components/modals/modal-edit/modal-edit.component';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
-import { TableComponent } from './components/table/table.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { ModalDetailsComponent } from './components/modal-details/modal-details.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ModalEditComponent } from './components/modal-edit/modal-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { ModelFormatPipe } from './pipes/model-format.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     TableComponent,
     PageNotFoundComponent,
     ModalDetailsComponent,
-    ModalEditComponent
+    ModalEditComponent,
+    ModelFormatPipe
   ],
   imports: [
     BrowserModule,

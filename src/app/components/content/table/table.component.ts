@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ApiResponse, Automovil } from 'src/app/models';
 import { AutosService } from 'src/app/services/autos.service';
-import { ModalDetailsComponent } from '../modal-details/modal-details.component';
-import { ModalEditComponent } from '../modal-edit/modal-edit.component';
+import { ModalDetailsComponent } from '../../modals/modal-details/modal-details.component';
+import { ModalEditComponent } from '../../modals/modal-edit/modal-edit.component';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({

@@ -19,6 +19,7 @@
                 <th scope="col">Marca</th>
                 <th scope="col">Submarca</th>
                 <th scope="col">Descripción</th>
+                <th scope="col">Modelos</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
                 <th scope="col"></th>
@@ -32,6 +33,7 @@
                 <td>{{ auto.marca }}</td>
                 <td>{{ auto.submarca }}</td>
                 <td>{{ auto.descripcion }}</td>
+                <td>{{ auto.modelos | modelFormat }}</td>
                 <td><i class="table-icon fas fa-eye" (click)="view(auto)"></i></td>
                 <td><i class="table-icon fa fa-edit" (click)="edit(auto)"></i></td>
                 <td><i class="table-icon fa fa-trash-alt" (click)="delete(auto, i)"></i></td>

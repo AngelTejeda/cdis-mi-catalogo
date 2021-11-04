@@ -63,13 +63,10 @@ export class ModalEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeFormGroup();
-
-    this.sliderMinValue = parseInt(this.auto.modelos[0]);
-    this.sliderMaxValue = parseInt(this.auto.modelos.slice(-1)[0]);
     
     this.myForm.valueChanges.subscribe(
       (data) => {
-        console.log(data);
+        console.log(this.formErrors);
         this.logValidationErrors(this.myForm);
       }
     );
@@ -102,6 +99,11 @@ export class ModalEditComponent implements OnInit {
         Validators.min(1)
       ]]
     });
+
+    if (this.auto.modelos) {
+      this.sliderMinValue = parseInt(this.auto.modelos[0]);
+      this.sliderMaxValue = parseInt(this.auto.modelos.slice(-1)[0]);
+    }
   }
 
   logValidationErrors(group: FormGroup): void {
