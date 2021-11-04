@@ -12,9 +12,10 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { ModalDetailsComponent } from './components/modal-details/modal-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalEditComponent } from './components/modal-edit/modal-edit.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    ReactiveFormsModule,
+    NgxSliderModule
   ],
   providers: [
     MatSnackBarModule

@@ -40,6 +40,12 @@ export class TableComponent implements OnInit {
     this.snackBar.open(message, "Cerrar", { duration: 4000 });
   }
 
+  view(auto: Automovil) {
+    const modalRef = this.modalService.open(ModalDetailsComponent, {centered: true});
+    modalRef.componentInstance.auto = auto;
+    modalRef.componentInstance.action = "view";
+  }
+
   add(): void {
     const modalRef = this.modalService.open(ModalEditComponent, {centered: true});
     modalRef.componentInstance.action = "Agregar";

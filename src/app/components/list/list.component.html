@@ -12,7 +12,6 @@
     <div class="container">
         <div class="item" *ngFor="let auto of autos | slice: (page - 1) * pageSize : page * pageSize">
             <i (click)="openModal(auto)" class="icon fas fa-eye"></i>
-            <!-- <img (click)="openModal(auto)" src="../../../assets/images/show-icon.png" alt="" class="icon"> -->
             <p class="description">{{ auto.marca }}, {{ auto.descripcioncorta }}</p>
         </div>
     </div>
