@@ -19,6 +19,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { ModelFormatPipe } from './pipes/model-format.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { LogComponent } from './components/content/log/log.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     PageNotFoundComponent,
     ModalDetailsComponent,
     ModalEditComponent,
-    ModelFormatPipe
+    ModelFormatPipe,
+    LogComponent
   ],
   imports: [
     BrowserModule,

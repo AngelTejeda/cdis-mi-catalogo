@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './components/content/page-not-found/page-not-found.component';
 import { ListComponent } from './components/content/list/list.component';
 import { TableComponent } from './components/content/table/table.component';
+import { LogComponent } from './components/content/log/log.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'table',
     component: TableComponent
+  },
+  {
+    path: 'log',
+    component: LogComponent
   },
   {
     path: '**',
