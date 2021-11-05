@@ -4,7 +4,7 @@ import { ApiResponse, Automovil } from 'src/app/shared/models';
 import { AutosService } from 'src/app/services/autos.service';
 import { ModalDetailsComponent } from '../../modals/modal-details/modal-details.component';
 import { ModalEditComponent } from '../../modals/modal-edit/modal-edit.component';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-table',
@@ -19,6 +19,7 @@ export class TableComponent implements OnInit {
   displayProgressBar: boolean = false;
   page: number = 1;
   pageSize: number = 10;
+  searchTextbox: string = "";
 
   constructor(
     private autosService: AutosService,

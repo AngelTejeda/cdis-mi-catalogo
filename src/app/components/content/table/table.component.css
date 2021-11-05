@@ -1,5 +1,4 @@
 .table {
-    width: 90%;
     margin: auto;
 }
 
@@ -16,4 +15,8 @@
 .table-icon:hover {
     filter: invert(100%) brightness(60%);
     cursor: pointer;
+}
+
+.container {
+    width: 90%;
 }

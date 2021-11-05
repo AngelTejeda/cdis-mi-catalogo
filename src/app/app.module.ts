@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { ModelFormatPipe } from './pipes/model-format.pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ModelFormatPipe } from './pipes/model-format.pipe';
     BrowserAnimationsModule,
     MatSnackBarModule,
     ReactiveFormsModule,
-    NgxSliderModule
+    NgxSliderModule,
+    Ng2SearchPipeModule
   ],
   providers: [
     MatSnackBarModule

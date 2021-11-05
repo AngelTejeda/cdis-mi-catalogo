@@ -2,13 +2,19 @@
     <span class="sr-only">Loading...</span>
 </div>
 
-<div *ngIf="!isLoading">
-    
+<div *ngIf="!isLoading" class="container">
 
-    <div class="d-flex justify-content-center">
-        <ngb-pagination size="lg"
-                [(page)]="page" [pageSize]="pageSize" [collectionSize]="autos.length"
-                [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+    <div class="form-inline">
+        <button type="button" class="btn btn-dark mx-3" (click)="add()"><i class="fa fa-plus"></i> Agregar</button>
+    </div>
+
+    <div class="input-group m-3" style="width: 40%;">
+        <div class="input-group-prepend">
+            <div class="input-group-text">
+                <i class="fa fa-search"></i>
+            </div>
+        </div>
+        <input type="text" class="form-control" placeholder="Buscar" [(ngModel)]="searchTextbox" autocomplete="off">
     </div>
 
     <table class="table table-striped">
@@ -20,7 +26,7 @@
                 <th scope="col">Submarca</th>
                 <th scope="col">Descripción</th>
                 <th scope="col">Modelos</th>
-                <th colspan="3"><button type="button" class="btn btn-light" (click)="add()"><i class="fa fa-plus"></i> Agregar</button></th>
+                <th colspan="3"></th>
             </tr>
         </thead>
     
@@ -31,13 +37,14 @@
                 </td>
             </tr>
 
-            <tr *ngFor="let auto of autos | slice: (page - 1) * pageSize : page * pageSize; index as i">
+            <tr *ngFor="let auto of autos | slice: (page - 1) * pageSize : page * pageSize | filter:searchTextbox; index as i" >
                 <td>{{ auto._id }}</td>
                 <td>{{ auto.Cveveh }}</td>
                 <td>{{ auto.marca }}</td>
                 <td>{{ auto.submarca }}</td>
                 <td>{{ auto.descripcion }}</td>
                 <td>{{ auto.modelos | modelFormat }}</td>
+                <!-- <td colspan="4"></td> -->
                 <td><i class="table-icon fas fa-eye" (click)="view(auto)"></i></td>
                 <td><i class="table-icon fa fa-edit" (click)="edit(auto)"></i></td>
                 <td><i class="table-icon fa fa-trash-alt" (click)="delete(auto, i)"></i></td>
