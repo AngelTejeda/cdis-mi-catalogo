@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Automovil } from 'src/app/models';
+import { Automovil } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-modal-details',

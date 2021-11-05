@@ -2,7 +2,8 @@ import { Options } from '@angular-slider/ngx-slider';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Automovil } from 'src/app/models';
+import { Automovil } from 'src/app/shared/models';
+import { getValidationMessages } from 'src/app/shared/form-validation-messages';
 
 @Component({
   selector: 'app-modal-edit',
@@ -15,40 +16,6 @@ export class ModalEditComponent implements OnInit {
   action: string = "Agregar";
 
   myForm: FormGroup = this.fb.group({});
-
-  validationMessages: { [key: string]: { [error: string]: string } } = {
-    "id": {
-      "required": "El ID es requerido."
-    },
-    "cveveh": {
-      "required": "El Cveveh es requerido."
-    },
-    "marca": {
-      "required": "La marca es requerida.",
-      "minlength": "La marca necesita al menos cuatro caracteres."
-    },
-    "submarca": {
-      "required": "La marca es requerida.",
-      "minlength": "La marca necesita al menos cuatro caracteres."
-    },
-    "descripcion": {
-      "required": "La descripción es requerida."
-    },
-    "descripcioncorta": {
-      "required": "La descripción corta es requerida."
-    },
-    "modelos": {
-      "required": "El modelo es requerido.",
-      "min": "El modelo debe ser mayor a 2000.",
-      "max": "El modelo debe ser menor a 2020."
-    },
-    "ocupantes": {
-      "required": "Los ocupantes son requeridos.",
-      "min": "Debe haber al menos un ocupante."
-    }
-  };
-
-  formErrors: { [key: string]: string | string[]} = { };
 
   sliderMinValue: number = 2000;
   sliderMaxValue: number = 2020;
@@ -66,8 +33,7 @@ export class ModalEditComponent implements OnInit {
     
     this.myForm.valueChanges.subscribe(
       (data) => {
-        console.log(this.formErrors);
-        this.logValidationErrors(this.myForm);
+        
       }
     );
   }
@@ -106,30 +72,12 @@ export class ModalEditComponent implements OnInit {
     }
   }
 
-  logValidationErrors(group: FormGroup): void {
-    Object.keys(group.controls).forEach((key: string) => {
-      const abstractControl: AbstractControl = group.get(key) as AbstractControl;
-
-      if (abstractControl instanceof FormControl) {
-        this.formErrors[key] = this.getErrorMessages(abstractControl, key);
-      }
-    });
+  getValidationMessages(control: AbstractControl): string[] {
+    return getValidationMessages(control);
   }
 
-  getErrorMessages(control: FormControl, key: string): string {
-    let errors = "";
-    
-    if (control && (!control.valid && control.dirty)) {
-      const messages = this.validationMessages[key];
-
-      for (const errorKey in control.errors) {
-        if (errorKey) {
-          errors += messages[errorKey] + " ";
-        }
-      }
-    }
-
-    return errors;
+  isValid(control: AbstractControl) {
+    return control.valid || control.pristine;
   }
 
   // Getters

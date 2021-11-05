@@ -1,10 +1,10 @@
-<button type="button" class="btn btn-dark" (click)="add()"><i class="fa fa-plus"></i> Agregar</button>
-
 <div *ngIf="isLoading" class="spinner-border spinner" role="status">
     <span class="sr-only">Loading...</span>
 </div>
 
 <div *ngIf="!isLoading">
+    
+
     <div class="d-flex justify-content-center">
         <ngb-pagination size="lg"
                 [(page)]="page" [pageSize]="pageSize" [collectionSize]="autos.length"
@@ -20,13 +20,17 @@
                 <th scope="col">Submarca</th>
                 <th scope="col">Descripción</th>
                 <th scope="col">Modelos</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-                <th scope="col"></th>
+                <th colspan="3"><button type="button" class="btn btn-light" (click)="add()"><i class="fa fa-plus"></i> Agregar</button></th>
             </tr>
         </thead>
     
         <tbody>
+            <tr *ngIf="displayProgressBar">
+                <td colspan="9" >
+                    <ngb-progressbar type="dark" [value]="100" [striped]="true" [animated]=true></ngb-progressbar>
+                </td>
+            </tr>
+
             <tr *ngFor="let auto of autos | slice: (page - 1) * pageSize : page * pageSize; index as i">
                 <td>{{ auto._id }}</td>
                 <td>{{ auto.Cveveh }}</td>

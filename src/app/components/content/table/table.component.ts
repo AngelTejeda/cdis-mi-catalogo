@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ApiResponse, Automovil } from 'src/app/models';
+import { ApiResponse, Automovil } from 'src/app/shared/models';
 import { AutosService } from 'src/app/services/autos.service';
 import { ModalDetailsComponent } from '../../modals/modal-details/modal-details.component';
 import { ModalEditComponent } from '../../modals/modal-edit/modal-edit.component';
@@ -14,7 +14,9 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 export class TableComponent implements OnInit {
 
   autos: Automovil[] = [];
+  
   isLoading: boolean = true;
+  displayProgressBar: boolean = false;
   page: number = 1;
   pageSize: number = 10;
 
@@ -22,18 +24,18 @@ export class TableComponent implements OnInit {
     private autosService: AutosService,
     private modalService: NgbModal,
     private snackBar: MatSnackBar) {
+  }
+
+  ngOnInit(): void {
     this.autosService.getAutos().subscribe(
       (result: ApiResponse) => {
         this.autos = result.data;
         this.isLoading = false;
       },
       (error) => {
-        console.log(error);
         this.isLoading = false;
-      });
-  }
-
-  ngOnInit(): void {
+      }
+    );
   }
 
   openSnackBar(message: string): void {
@@ -50,20 +52,23 @@ export class TableComponent implements OnInit {
     const modalRef = this.modalService.open(ModalEditComponent, {centered: true});
     modalRef.componentInstance.action = "Agregar";
 
+
     modalRef.result.then(
       (auto) => {
+        this.displayProgressBar = true;
+
         this.autosService.addAuto(auto).subscribe(
           (response) => {
-            this.autos = this.autos.concat(auto);
+            this.autos.push(auto);
+
+            this.displayProgressBar = false;
             this.openSnackBar("¡Auto agregado exitosamente!");
           },
-          (error) => {
-            this.openSnackBar("Ha ocurrido un error al agregar el auto.");
-          }
         );
       },
       (reason) => { }
-    );
+    )
+    .catch((error) => this.openSnackBar("Ha ocurrido un error al agregar el auto."));
   }
 
   edit(auto: Automovil): void {
@@ -73,17 +78,18 @@ export class TableComponent implements OnInit {
 
     modalRef.result.then(
       (auto) => {
+        this.displayProgressBar = true;
+        
         this.autosService.updateAuto(auto).subscribe(
           (response) => {
+            this.displayProgressBar = false;
             this.openSnackBar("¡Auto modificado exitosamente!");
           },
-          (error) => {
-            this.openSnackBar("Ha ocurrido un error al modificar el auto.");
-          }
         );
       },
       (reason) => { }
-    );
+    )
+    .catch((error) => this.openSnackBar("Ha ocurrido un error al modificar el auto."));
   }
 
   delete(auto: Automovil, relativeIndex: number): void {
@@ -91,20 +97,23 @@ export class TableComponent implements OnInit {
     modalRef.componentInstance.auto = auto;
     modalRef.componentInstance.action = "delete";
 
-    modalRef.result.then(
+    modalRef.result
+    .then(
       (auto) => {
+        this.displayProgressBar = true;
+        
         this.autosService.deleteAuto(auto._id).subscribe(
           (response) => {
             const absoluteIndex = (this.page - 1) * this.pageSize + relativeIndex;
             this.autos.splice(absoluteIndex, 1);
+            
+            this.displayProgressBar = false;
             this.openSnackBar("¡Auto eliminado exitosamente!");
           },
-          (error) => {
-            this.openSnackBar("Ha ocurrido un error al eliminar el auto.");
-          }
         );
       },
       (reason) => { }
-    );
+    )
+    .catch((error) => this.openSnackBar("Ha ocurrido un error al eliminar el auto."));
   }
 }

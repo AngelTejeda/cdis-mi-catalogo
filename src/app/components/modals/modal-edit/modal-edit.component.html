@@ -13,8 +13,10 @@
                 <input type="text" formControlName="id" class="form-control" 
                 placeholder="Escriba el ID del auto">
 
-                <div *ngIf="formErrors.id" class="alert alert-danger">
-                    {{ formErrors.id }}
+                <div *ngIf="!isValid(id)" class="alert alert-danger">
+                    <div *ngFor="let error of getValidationMessages(id)">
+                        {{ error }}
+                    </div>
                 </div>
             </div>
     
@@ -23,8 +25,10 @@
                 <input type="text" formControlName="cveveh" class="form-control"
                 placeholder="Escriba el Cveveh del auto">
 
-                <div *ngIf="formErrors.cveveh" class="alert alert-danger">
-                    {{ formErrors.cveveh }}
+                <div *ngIf="!isValid(cveveh)" class="alert alert-danger">
+                    <div *ngFor="let error of getValidationMessages(cveveh)">
+                        {{ error }}
+                    </div>
                 </div>
             </div>
     
@@ -33,8 +37,10 @@
                 <input type="text" formControlName="marca" class="form-control"
                 placeholder="Escriba la marca del auto">
 
-                <div *ngIf="formErrors.marca" class="alert alert-danger">
-                    {{ formErrors.marca }}
+                <div *ngIf="!isValid(marca)" class="alert alert-danger">
+                    <div *ngFor="let error of getValidationMessages(marca)">
+                        {{ error }}
+                    </div>
                 </div>
             </div>
     
@@ -43,8 +49,10 @@
                 <input type="text" formControlName="submarca" class="form-control"
                 placeholder="Escriba la submarca del auto">
 
-                <div *ngIf="formErrors.submarca" class="alert alert-danger">
-                    {{ formErrors.submarca }}
+                <div *ngIf="!isValid(submarca)" class="alert alert-danger">
+                    <div *ngFor="let error of getValidationMessages(submarca)">
+                        {{ error }}
+                    </div>
                 </div>
             </div>
             
@@ -53,8 +61,10 @@
                 <textarea formControlName="descripcion" class="form-control" rows="2"
                 placeholder="Escriba la descripción del auto"></textarea>
 
-                <div *ngIf="formErrors.descripcion" class="alert alert-danger">
-                    {{ formErrors.descripcion }}
+                <div *ngIf="!isValid(descripcion)" class="alert alert-danger">
+                    <div *ngFor="let error of getValidationMessages(descripcion)">
+                        {{ error }}
+                    </div>
                 </div>
             </div>
 
@@ -63,8 +73,10 @@
                 <textarea formControlName="descripcioncorta" class="form-control" rows="2"
                 placeholder="Escriba una descripción corta"></textarea>
 
-                <div *ngIf="formErrors.descripcioncorta" class="alert alert-danger">
-                    {{ formErrors.descripcioncorta }}
+                <div *ngIf="!isValid(descripcioncorta)" class="alert alert-danger">
+                    <div *ngFor="let error of getValidationMessages(descripcioncorta)">
+                        {{ error }}
+                    </div>
                 </div>
             </div>
     
@@ -78,8 +90,10 @@
                 <input type="number" formControlName="ocupantes" class="form-control"
                 placeholder="Escriba el número de ocupantes">
 
-                <div *ngIf="formErrors.ocupantes" class="alert alert-danger">
-                    {{ formErrors.ocupantes }}
+                <div *ngIf="!isValid(ocupantes)" class="alert alert-danger">
+                    <div *ngFor="let error of getValidationMessages(ocupantes)">
+                        {{ error }}
+                    </div>
                 </div>
             </div>
         </form>
